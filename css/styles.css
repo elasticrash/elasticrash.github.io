@@ -1,0 +1,41 @@
+html {
+  background-color: black;
+  color: antiquewhite;
+  font-family: "Roboto Mono", monospace;
+}
+
+div.cog {
+  color: transparent;
+  text-shadow: 0 0 0 antiquewhite;
+  transition: 1.3s ease;
+  transform-origin: center center;
+  font-size: 50%;
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+div.cog:hover {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+}
+
+div.vspace {
+  display: flex;
+  flex-direction: column;
+}
+
+div.logo {
+  display: flex;
+  flex-direction: row;
+  font-size: 20em;
+}
+
+div.by {
+  display: flex;
+  flex-direction: row;
+}
+
+div.space {
+  flex: 1 1 10%;
+}
