@@ -20,9 +20,12 @@ div.cog:hover {
   -ms-transform: rotate(90deg);
 }
 
-div.vspace {
-  display: flex;
-  flex-direction: column;
+div.space {
+  flex: 1 1 10%;
+}
+
+div.tiny-space {
+  flex: 0 0 50px;
 }
 
 div.logo {
@@ -31,11 +34,57 @@ div.logo {
   font-size: 20em;
 }
 
-div.by {
+div.by,
+div.menu,
+div.section,
+div.cv-entry {
   display: flex;
   flex-direction: row;
 }
 
-div.space {
-  flex: 1 1 10%;
+div.vspace,
+div.cv-content,
+div.cv {
+  display: flex;
+  flex-direction: column;
+}
+
+div.section {
+  margin-bottom: 5px;
+}
+
+div.menu {
+  margin-top: 50px;
+}
+
+a.menu-item {
+  all: unset;
+  cursor: crosshair;
+  background-color: black;
+  color: antiquewhite;
+  transition: background-color 0.5s ease;
+}
+
+a.menu-item:hover {
+  background-color: antiquewhite;
+  color: black;
+  font-weight: bold;
+  transition: background-color 0.5s ease;
+}
+
+div.cv-entry-content {
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+div.title {
+  flex: 0 0 150px;
+}
+
+div.cv-entry-title {
+  flex: 0 0 250px;
+}
+
+.emphasis {
+  font-weight: bold;
 }
