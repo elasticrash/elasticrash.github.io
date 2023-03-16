@@ -16,6 +16,34 @@
 
       gtag("config", "G-NZY3XNK98C");
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const input = document.querySelector(".t-input");
+        const fluid = document.querySelector(".fluid");
+        const tiggy = document.querySelector(".tiggy");
+        const spawnflake = document.querySelector(".spawnflake");
+        const orchestrator = document.querySelector(".orchestrator ");
+        const point_cloud_to_image = document.querySelector(
+          ".point_cloud_to_image "
+        );
+
+        fluid.addEventListener("mouseover", () => {
+          input.textContent = "Distributed Scheduling Engine";
+        });
+        tiggy.addEventListener("mouseover", () => {
+          input.textContent = "SIP UA";
+        });
+        spawnflake.addEventListener("mouseover", () => {
+          input.textContent = "Random Data Generator for Mysql";
+        });
+        orchestrator.addEventListener("mouseover", () => {
+          input.textContent = "Orchestrator library for Rust";
+        });
+        point_cloud_to_image.addEventListener("mouseover", () => {
+          input.textContent = "Rendering Engine for Point Clouds";
+        });
+      });
+    </script>
 
     <meta charset="utf-8" />
 
@@ -56,8 +84,25 @@
 
     <div class="menu">
       <div class="space"></div>
+      <div class="terminal">
+        <div class="header">
+          <div class="circle red"></div>
+          hover over project for description
+        </div>
+        <div class="body">
+          <div class="input-line">
+            <span class="prompt">$</span>
+            <span class="t-input"></span>
+          </div>
+        </div>
+      </div>
+      <div class="space"></div>
+    </div>
+
+    <div class="menu">
+      <div class="space"></div>
       <div class="cv-content">
-        <div class="cv-entry">
+        <div class="cv-entry fluid">
           <div class="cv-entry-title">[ fluid ]</div>
           <a
             href="https://github.com/elasticrash/fluid"
@@ -66,7 +111,7 @@
             https://github.com/elasticrash/fluid
           </a>
         </div>
-        <div class="cv-entry">
+        <div class="cv-entry tiggy">
           <div class="cv-entry-title">[ tiggy ]</div>
           <a
             href="https://github.com/elasticrash/tiggy"
@@ -75,7 +120,7 @@
             https://github.com/elasticrash/tiggy
           </a>
         </div>
-        <div class="cv-entry">
+        <div class="cv-entry spawnflake">
           <div class="cv-entry-title">[ spawnflake ]</div>
           <a
             href="https://github.com/elasticrash/spawnflake"
@@ -84,7 +129,7 @@
             https://github.com/elasticrash/spawnflake
           </a>
         </div>
-        <div class="cv-entry">
+        <div class="cv-entry orchestrator">
           <div class="cv-entry-title">[ orchestrator ]</div>
           <a
             href="https://github.com/elasticrash/orchestrator"
@@ -93,7 +138,7 @@
             https://github.com/elasticrash/orchestrator
           </a>
         </div>
-        <div class="cv-entry">
+        <div class="cv-entry point_cloud_to_image">
           <div class="cv-entry-title">[ point-cloud-to-image ]</div>
           <a
             href="https://github.com/elasticrash/point-cloud-to-image"

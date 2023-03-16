@@ -105,3 +105,76 @@ div.cv-entry-title {
 .emphasis {
   font-weight: bold;
 }
+
+.hint-box {
+  position: relative;
+  display: inline-block;
+}
+
+.terminal {
+  width: 300px;
+  background-color: black;
+  color: antiquewhite;
+  font-family: monospace;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.header {
+  height: 20px;
+  background-color: antiquewhite;
+  color: black;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.red {
+  background-color: gray;
+}
+
+.body {
+  padding: 5px;
+  display: grid;
+  border-top-color: antiquewhite;
+  border-left: gray;
+  border-right: gray;
+  border-bottom: gray;
+  border-style: solid;
+  grid-template-rows: 1fr auto;
+}
+
+.output {
+  font-family: monospace;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+.input-line {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.prompt {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.input {
+  border: none;
+  background: transparent;
+  font-family: monospace;
+  width: 100%;
+  outline: none;
+  color: antiquewhite;
+}
