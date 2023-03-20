@@ -178,3 +178,7 @@ div.cv-entry-title {
   outline: none;
   color: antiquewhite;
 }
+
+.project-title{
+  margin-top: 5px;
+}
