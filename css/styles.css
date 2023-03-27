@@ -72,6 +72,17 @@ a.menu-item:hover {
   transition: background-color 0.5s ease;
 }
 
+a.raw-ref {
+  all: unset;
+  cursor: crosshair;
+}
+
+a.raw-ref:hover {
+  all: unset;
+  cursor: crosshair;
+  color: goldenrod;
+}
+
 a.cv-entry-content {
   all: unset;
   margin-left: 8px;
@@ -179,6 +190,6 @@ div.cv-entry-title {
   color: antiquewhite;
 }
 
-.project-title{
+.project-title {
   margin-top: 5px;
 }
