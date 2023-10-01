@@ -17,7 +17,8 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const input = document.querySelector(".t-input");
-      const fluid = document.querySelector(".fluid");
+      const bmk = document.querySelector(".bmk");
+	  const fluid = document.querySelector(".fluid");
       const tiggy = document.querySelector(".tiggy");
       const spawnflake = document.querySelector(".spawnflake");
       const orchestrator = document.querySelector(".orchestrator ");
@@ -28,7 +29,10 @@
       const helix = document.querySelector(".helix");
       const plaid = document.querySelector(".plaid");
       const ut472 = document.querySelector(".ut472");
-
+	  
+	  bmk.addEventListener("mouseover", () => {
+        input.textContent = "Path Bookmark Manager";
+      });
       fluid.addEventListener("mouseover", () => {
         input.textContent = "Distributed Scheduling Engine";
       });
@@ -116,6 +120,12 @@
     <div class="cv-content">
       <div class="cv-entry emphasis project-title">
         RUST
+      </div>
+	  <div class="cv-entry bmk">
+        <div class="cv-entry-title">[ bmk ]</div>
+        <a href="https://github.com/elasticrash/bookmark-paths" class="cv-entry-content">
+          https://github.com/elasticrash/bookmark-paths
+        </a>
       </div>
       <div class="cv-entry fluid">
         <div class="cv-entry-title">[ fluid ]</div>
