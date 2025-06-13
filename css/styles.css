@@ -131,6 +131,15 @@ div.cv-entry-title {
   overflow: hidden;
 }
 
+.terminal-video {
+  width: 575px;
+  background-color: black;
+  color: antiquewhite;
+  font-family: monospace;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
 .header {
   height: 20px;
   background-color: antiquewhite;
@@ -174,6 +183,14 @@ div.cv-entry-title {
   grid-template-columns: auto 1fr;
   align-items: center;
   padding: 2px 0;
+}
+
+.video-line {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 2px 0;
+  height: 330px;
 }
 
 .prompt {
