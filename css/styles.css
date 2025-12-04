@@ -131,6 +131,15 @@ div.cv-entry-title {
   overflow: hidden;
 }
 
+.terminal-image {
+  max-width: 800px;
+  background-color: black;
+  color: antiquewhite;
+  font-family: monospace;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
 .terminal-video {
   width: 575px;
   background-color: black;
@@ -147,6 +156,17 @@ div.cv-entry-title {
   display: flex;
   justify-content: left;
   align-items: center;
+  white-space: normal;
+}
+
+.header-double {
+  height: 40px;
+  background-color: antiquewhite;
+  color: black;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  white-space: normal;
 }
 
 .circle {
