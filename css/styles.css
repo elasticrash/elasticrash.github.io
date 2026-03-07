@@ -42,6 +42,44 @@ div.cv-entry {
   flex-direction: row;
 }
 
+div.by.desc {
+  margin-top: 12px;
+}
+
+div.desc-block {
+  font-size: 0.6em;
+  opacity: 0.6;
+  line-height: 1.9;
+  font-weight: 100;
+}
+
+div.by.bio {
+  margin-top: 40px;
+}
+
+div.bio-block {
+  font-size: 0.81em;
+  font-weight: 100;
+  opacity: 0.7;
+  max-width: 560px;
+  line-height: 2;
+}
+
+div.bio-block p {
+  margin: 0 0 1em;
+}
+
+a.bio-link {
+  all: unset;
+  cursor: crosshair;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a.bio-link:hover {
+  color: goldenrod;
+}
+
 div.vspace,
 div.cv-content,
 div.cv {
@@ -229,4 +267,16 @@ div.cv-entry-title {
 
 .project-title {
   margin-top: 5px;
+}
+
+.album-promo {
+  padding: 10px;
+  text-align: center;
+}
+
+.album-meta {
+  padding: 5px 10px 10px;
+  font-size: 0.85em;
+  opacity: 0.75;
+  line-height: 1.8;
 }
