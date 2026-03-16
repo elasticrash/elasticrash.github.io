@@ -34,6 +34,12 @@ div.logo {
   font-size: 20em;
 }
 
+div.project-logo {
+	display: flex;
+	flex-direction: row;
+	font-size: 8em;
+}
+
 div.by,
 div.menu,
 div.section,
@@ -143,12 +149,38 @@ div.cv-entry-content {
   white-space: nowrap;
 }
 
+a.cp-entry-content {
+  all: unset;
+  white-space: nowrap;
+  cursor: crosshair;
+  background-color: black;
+  color: antiquewhite;
+  transition: background-color 0.5s ease;
+}
+
+a.cp-entry-content:hover {
+  background-color: antiquewhite;
+  color: black;
+  font-weight: bold;
+  transition: background-color 0.5s ease;
+}
+
+div.cp-entry-content {
+  white-space: nowrap;
+}
+
+
+
 div.title {
   flex: 0 0 150px;
 }
 
 div.cv-entry-title {
   flex: 0 0 250px;
+}
+
+div.cp-entry-title {
+  flex: 0 0 300px;
 }
 
 .emphasis {
