@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZY3XNK98C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-NZY3XNK98C");
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="description" content="datafowk — terminal ETL tool for MySQL and PostgreSQL.">
+  <meta name="keywords" content="datafowk, Rust, MySQL, PostgreSQL, ETL, data pipeline, transform">
+  <meta name="author" content="Stefanos Kouroupis">
+
+  <title>datafowk | VOID MACHINES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <div class="project-logo">
+    <div class="space"></div>
+    <div class="main">Datafowk</div>
+    <div class="vspace">
+      <div class="cog">🛢</div>
+      <div></div>
+    </div>
+    <div class="space"></div>
+  </div>
+
+  <div class="by">
+    <div class="space"></div>
+    <div class="space"></div>
+    <div>software*project</div>
+    <div class="space"></div>
+  </div>
+
+  <div class="by desc">
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="desc-block">
+      <div>terminal etl tool · mysql · postgresql · csv</div>
+    </div>
+    <div class="space"></div>
+  </div>
+
+  <div class="by bio">
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="bio-block">
+      <p><a href="https://github.com/elasticrash/datafowk" class="cp-entry-content">Datafowk</a> is a terminal ETL tool for MySQL and PostgreSQL written in Rust.</p>
+      <p>Define pipelines in a single <code>.toml</code> config file using a compact rule expression: select source tables, join them, filter rows, apply a transform chain, and write to a destination table — all in one line.</p>
+      <p>Comes with an interactive TUI for editing rules and connections, a schema preview, live data preview, dry-run simulation, and support for CSV as a source alongside MySQL and PostgreSQL.</p>
+    </div>
+    <div class="space"></div>
+  </div>
+
+  <div class="menu" style="margin-top:40px;margin-bottom:60px">
+    <div class="space"></div>
+    <div class="cv-content">
+      <div class="cv-entry emphasis project-title">supported sources</div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ mysql ]</div>
+        <div class="cv-entry-content">read · write</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ postgresql ]</div>
+        <div class="cv-entry-content">read · write</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ postgis ]</div>
+        <div class="cv-entry-content">read · [_____]</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ csv ]</div>
+        <div class="cv-entry-content">read · [_____]</div>
+      </div>
+
+      <div class="cv-entry emphasis project-title" style="margin-top:20px">supported transforms</div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ copy / identity ]</div>
+        <div class="cv-entry-content">pass value through unchanged</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ trim ]</div>
+        <div class="cv-entry-content">strip leading/trailing whitespace</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ lowercase / uppercase ]</div>
+        <div class="cv-entry-content">case conversion</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ sum(n) / subtract(n) ]</div>
+        <div class="cv-entry-content">add or subtract a constant</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ multiply(n) / divide(n) ]</div>
+        <div class="cv-entry-content">scale numeric values</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ constant(v) ]</div>
+        <div class="cv-entry-content">replace field with a fixed value</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ concat(sep?) ]</div>
+        <div class="cv-entry-content">join two source fields into one</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ unique(field) ]</div>
+        <div class="cv-entry-content">skip duplicate destination rows</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cp-entry-title">[ area / perimeter ]</div>
+        <div class="cv-entry-content">computed from postgis geometry</div>
+      </div>
+    </div>
+    <div class="space"></div>
+  </div>
+
+</body>
+
+</html>
