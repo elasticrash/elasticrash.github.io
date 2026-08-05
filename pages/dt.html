@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZY3XNK98C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-NZY3XNK98C");
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="description"
+    content="in-browser audio analysis in Rust and wasm. Four pages of charts on codec artifacts, synthesis vs capture, timing and loudness. Nothing is uploaded.">
+  <meta name="keywords"
+    content="fradan, Rust, wasm, audio analysis, codec artifacts, mp3 detection, spectrogram, LUFS, loudness, transients">
+  <meta name="author" content="Stefanos Kouroupis">
+
+  <title>fradan | VOID MACHINES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <div class="project-logo">
+    <div class="space"></div>
+    <div class="main">Fradan</div>
+    <div class="vspace">
+      <div class="cog">🎚</div>
+      <div></div>
+    </div>
+    <div class="space"></div>
+  </div>
+
+  <div class="by">
+    <div class="space"></div>
+    <div class="space"></div>
+    <div>software*project</div>
+    <div class="space"></div>
+  </div>
+
+  <div class="by desc">
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="desc-block">
+      <div>audio analysis · rust · wasm · runs in this tab</div>
+    </div>
+    <div class="space"></div>
+  </div>
+
+  <div class="menu">
+    <div class="space"></div>
+    <a href="../index.html" class="menu-item">[ back to the void ]</a>
+    <div class="tiny-space"></div>
+    <a href="./pp.html" class="menu-item">[ software projects ]</a>
+    <div class="space"></div>
+  </div>
+
+  <div class="by bio">
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="bio-block">
+      <p><span class="emphasis">Fradan</span> is perceptual-codec forensic analysis: four pages of charts showing
+        <em>where</em> the artifacts sit, across time and across frequency. No scores for anything.</p>
+      <p>In theory you can detect lossy samples or even AI audio artifacts.</p>
+      <p>The whole analysis compiles to wasm and draws the same four pages onto canvases here. No bindgen, no npm, no
+        bundler — the interface is four pixel buffers and a string, so a raw C ABI covers it. Decoding stays in Rust
+        rather than going through WebAudio, because that resamples to the AudioContext rate and would destroy the
+        lowpass cutoff that page one exists to find.</p>
+      <p>Nothing is uploaded. All is local, and in theory can be used offline. The file is decoded and analysed
+        inside this tab, on the main thread — so a long file will freeze it for a few seconds.</p>
+    </div>
+    <div class="space"></div>
+  </div>
+
+  <div class="menu center" style="margin-top:40px">
+    <div class="wide">
+      <div class="panel">
+        <div class="header">
+          <div class="circle red"></div>
+          local audio analysis — nothing leaves this tab (should work offline as well)
+        </div>
+        <div class="body">
+          <div class="controls">
+            <input type="file" id="file" class="file-hidden"
+              accept="audio/*,.wav,.flac,.mp3,.m4a,.ogg,.opus" disabled>
+            <label for="file" id="pick" class="pick off">[ choose audio file ]</label>
+            <div class="limits">
+              <span class="control-label">analyse</span>
+              <span class="pick" data-limit="60">[ first 60s ]</span>
+              <span class="pick on" data-limit="180">[ first 3 min ]</span>
+              <span class="pick" data-limit="0">[ whole file ]</span>
+            </div>
+          </div>
+          <div class="input-line">
+            <span class="prompt">$</span>
+            <span id="status" class="status working">loading fradan.wasm&hellip;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu center" style="margin-top:30px">
+    <div class="wide">
+      <div id="pages"></div>
+
+      <div id="metrics-frame" class="panel hidden">
+        <div class="header">
+          <div class="circle red"></div>
+          metrics.json
+        </div>
+        <div class="body">
+          <div class="output metrics" id="metrics"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu center" style="margin-top:30px;margin-bottom:60px">
+    <div class="wide">
+      <div class="panel">
+        <div class="header">
+          <div class="circle red"></div>
+          sample output — flirting virtual orchestra
+          <div class="space"></div>
+          <a href="https://youtu.be/K2F0mBzxEcU" class="chart-get">[ listen ]</a>
+          <a href="./fs.html" class="chart-get">[ see full size ]</a>
+        </div>
+        <div class="body">
+          <div class="thumbs">
+            <a href="./fs.html" class="thumb">
+              <img src="../assets/sample/artifacts-thumb.webp" width="600" height="523" loading="lazy"
+                alt="Page one: spectrum over time with the per-frame lowpass cutoff traced over it, plus the artifact distribution and localised evidence.">
+              <span class="thumb-label">1 — CODEC ARTIFACTS</span>
+            </a>
+            <a href="./fs.html" class="thumb">
+              <img src="../assets/sample/synthesis-thumb.webp" width="600" height="461" loading="lazy"
+                alt="Page two: stereo coherence and width over frequency, noise floor against level, modulation spectrum and top-octave activity.">
+              <span class="thumb-label">2 — SYNTHESIS VS CAPTURE</span>
+            </a>
+            <a href="./fs.html" class="thumb">
+              <img src="../assets/sample/timing-thumb.webp" width="600" height="495" loading="lazy"
+                alt="Page three: tempo over time, onsets against a fitted grid, spectral seams and attack rise times.">
+              <span class="thumb-label">3 — TIMING AND TRANSIENTS</span>
+            </a>
+            <a href="./fs.html" class="thumb">
+              <img src="../assets/sample/loudness-thumb.webp" width="600" height="510" loading="lazy"
+                alt="Page four: momentary and short-term LUFS, the loudness histogram, crest factor, third-octave spectrum and a goniometer.">
+              <span class="thumb-label">4 — LEVEL AND DYNAMICS</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TITLES = [
+      "PAGE 1 — CODEC ARTIFACTS",
+      "PAGE 2 — SYNTHESIS VS CAPTURE",
+      "PAGE 3 — TIMING AND TRANSIENTS",
+      "PAGE 4 — LEVEL, DYNAMICS AND BALANCE",
+    ];
+    const NAMES = ["artifacts", "synthesis", "timing", "loudness"];
+
+    let wasm = null;
+    let limit = 180;
+    const $ = (id) => document.getElementById(id);
+
+    // gtag is defined as a dataLayer stub in <head>, so events fired before the
+    // library finishes loading are queued rather than lost. No filenames are
+    // ever sent — extension and size only.
+    function track(name, params) {
+      if (typeof gtag === "function") gtag("event", name, params || {});
+    }
+
+    function status(text, state) {
+      const el = $("status");
+      el.textContent = text;
+      el.className = "status" + (state ? " " + state : "");
+    }
+
+    function enablePicker(on) {
+      $("file").disabled = !on;
+      $("pick").classList.toggle("off", !on);
+    }
+
+    // The wasm memory can be replaced by a growth, so every read takes a fresh
+    // view rather than holding one across a call.
+    function str(ptr, len) {
+      return new TextDecoder().decode(new Uint8Array(wasm.memory.buffer, ptr, len));
+    }
+
+    document.querySelectorAll("[data-limit]").forEach((el) => {
+      el.addEventListener("click", () => {
+        document.querySelectorAll("[data-limit]").forEach((o) => o.classList.remove("on"));
+        el.classList.add("on");
+        limit = parseFloat(el.dataset.limit);
+      });
+    });
+
+    async function boot() {
+      const t0 = performance.now();
+      try {
+        // Plain instantiate rather than instantiateStreaming, so the page does not
+        // care whether the server labels .wasm with the right MIME type.
+        const bytes = await (await fetch("../assets/fradan.wasm")).arrayBuffer();
+        const { instance } = await WebAssembly.instantiate(bytes, {});
+        wasm = instance.exports;
+        enablePicker(true);
+        status("ready — choose an audio file", null);
+        track("fradan_ready", { load_ms: Math.round(performance.now() - t0) });
+      } catch (e) {
+        status("could not load fradan.wasm: " + e.message, "failed");
+        track("fradan_load_failed", { reason: String(e.message).slice(0, 100) });
+      }
+    }
+
+    async function analyse(file) {
+      enablePicker(false);
+      status("decoding and analysing — this tab will freeze for a few seconds…", "working");
+      // Fired before the blocking call, so a run still counts if the visitor
+      // gives up on the freeze and leaves.
+      track("fradan_run", {
+        limit_s: limit,
+        file_ext: (file.name.match(/\.([^.]+)$/) || [, "none"])[1].toLowerCase(),
+        file_mb: +(file.size / 1048576).toFixed(1),
+      });
+      // Two frames, so the message above is actually painted before the call
+      // blocks the main thread.
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+      const input = new Uint8Array(await file.arrayBuffer());
+      const ptr = wasm.alloc(input.length);
+      new Uint8Array(wasm.memory.buffer, ptr, input.length).set(input);
+
+      const t0 = performance.now();
+      const rc = wasm.analyse(ptr, input.length, limit);
+      const secs = ((performance.now() - t0) / 1000).toFixed(1);
+      enablePicker(true);
+
+      if (rc !== 0) {
+        const why = str(wasm.error_ptr(), wasm.error_len());
+        status("failed: " + why, "failed");
+        track("fradan_result", { outcome: "failed", reason: why.slice(0, 100) });
+        return;
+      }
+
+      const host = $("pages");
+      host.textContent = "";
+      const count = wasm.page_count();
+      for (let i = 0; i < count; i++) {
+        const w = wasm.page_width(i), h = wasm.page_height(i);
+        // Copied out of the module's memory before anything can grow it.
+        const px = new Uint8ClampedArray(wasm.memory.buffer, wasm.page_ptr(i), w * h * 4).slice();
+
+        const frame = document.createElement("div");
+        frame.className = "chart";
+
+        const head = document.createElement("div");
+        head.className = "header";
+        const dot = document.createElement("div");
+        dot.className = "circle red";
+        const label = document.createElement("span");
+        label.textContent = TITLES[i] || "PAGE " + (i + 1);
+        const gap = document.createElement("div");
+        gap.className = "space";
+        const dl = document.createElement("a");
+        dl.className = "chart-get";
+        dl.textContent = "[ png ]";
+        dl.download = file.name.replace(/\.[^.]+$/, "") + "-" + (NAMES[i] || i) + ".png";
+        dl.href = "#";
+        head.append(dot, label, gap, dl);
+
+        const body = document.createElement("div");
+        body.className = "chart-body";
+        const cv = document.createElement("canvas");
+        cv.width = w;
+        cv.height = h;
+        cv.getContext("2d").putImageData(new ImageData(px, w, h), 0, 0);
+        body.append(cv);
+
+        dl.addEventListener("click", (e) => {
+          e.preventDefault();
+          cv.toBlob((b) => {
+            const url = URL.createObjectURL(b);
+            const a = Object.assign(document.createElement("a"), { href: url, download: dl.download });
+            a.click();
+            URL.revokeObjectURL(url);
+          });
+        });
+
+        frame.append(head, body);
+        host.append(frame);
+      }
+
+      const json = JSON.parse(str(wasm.json_ptr(), wasm.json_len()));
+      $("metrics").textContent = JSON.stringify(json, null, 2);
+      $("metrics-frame").classList.remove("hidden");
+      status(count + " pages in " + secs + "s", null);
+
+      track("fradan_result", {
+        outcome: "ok",
+        elapsed_s: +secs,
+        codec: json.codec,
+        sample_rate: json.sample_rate,
+        duration_s: Math.round(json.duration_s),
+        score: json.score,
+      });
+    }
+
+    $("file").addEventListener("change", (e) => {
+      if (e.target.files[0]) analyse(e.target.files[0]);
+    });
+    boot();
+  </script>
+</body>
+
+</html>

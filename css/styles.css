@@ -169,8 +169,6 @@ div.cp-entry-content {
   white-space: nowrap;
 }
 
-
-
 div.title {
   flex: 0 0 150px;
 }
@@ -311,4 +309,177 @@ div.cp-entry-title {
   font-size: 0.85em;
   opacity: 0.75;
   line-height: 1.8;
+}
+
+div.center {
+  justify-content: center;
+}
+
+div.wide {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 1500px;
+  min-width: 0;
+}
+
+.panel {
+  width: 100%;
+  background-color: black;
+  color: antiquewhite;
+  font-family: monospace;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 0 4px;
+}
+
+.control-label {
+  font-size: 0.75em;
+  opacity: 0.6;
+  padding-right: 4px;
+}
+
+input.file-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+label.pick,
+span.pick {
+  cursor: crosshair;
+  background-color: black;
+  color: antiquewhite;
+  transition: background-color 0.5s ease;
+  white-space: nowrap;
+}
+
+label.pick:hover,
+span.pick:hover {
+  background-color: antiquewhite;
+  color: black;
+  font-weight: bold;
+}
+
+span.pick.on {
+  background-color: antiquewhite;
+  color: black;
+  font-weight: bold;
+}
+
+.pick.off {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.limits {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85em;
+}
+
+.status.working {
+  color: goldenrod;
+}
+
+.status.failed {
+  color: #d03b3b;
+}
+
+.chart {
+  margin-bottom: 30px;
+  background-color: black;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.chart-body {
+  padding: 5px;
+  border: 3px solid gray;
+  border-top: none;
+}
+
+.chart-body canvas,
+.chart-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+div.thumbs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+a.thumb {
+  all: unset;
+  cursor: crosshair;
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+a.thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid gray;
+  border-radius: 3px;
+  opacity: 0.55;
+  transition: opacity 0.5s ease;
+}
+
+a.thumb:hover img {
+  opacity: 1;
+}
+
+.thumb-label {
+  font-size: 0.62em;
+  opacity: 0.5;
+  padding-top: 6px;
+  letter-spacing: 0.06em;
+  transition: opacity 0.5s ease;
+}
+
+a.thumb:hover .thumb-label {
+  opacity: 1;
+  color: goldenrod;
+}
+
+a.chart-get {
+  all: unset;
+  cursor: crosshair;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+
+a.chart-get:hover {
+  color: goldenrod;
+}
+
+.metrics {
+  max-height: 420px;
+  font-size: 0.75em;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.hidden {
+  display: none;
 }
