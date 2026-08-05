@@ -72,11 +72,11 @@
         <em>where</em> the artifacts sit, across time and across frequency. No scores for anything.</p>
       <p>In theory you can detect lossy samples or even AI audio artifacts.</p>
       <p>The whole analysis compiles to wasm and draws the same four pages onto canvases here. No bindgen, no npm, no
-        bundler — the interface is four pixel buffers and a string, so a raw C ABI covers it. Decoding stays in Rust
+        bundler. The interface is four pixel buffers and a string, so a raw C ABI covers it. Decoding stays in Rust
         rather than going through WebAudio, because that resamples to the AudioContext rate and would destroy the
         lowpass cutoff that page one exists to find.</p>
       <p>Nothing is uploaded. All is local, and in theory can be used offline. The file is decoded and analysed
-        inside this tab, on the main thread — so a long file will freeze it for a few seconds.</p>
+        inside this tab, on the main thread. So a long file will freeze it for a few seconds.</p>
     </div>
     <div class="space"></div>
   </div>
@@ -86,7 +86,7 @@
       <div class="panel">
         <div class="header">
           <div class="circle red"></div>
-          local audio analysis — nothing leaves this tab (should work offline as well)
+          local audio analysis (should work offline as well)
         </div>
         <div class="body">
           <div class="controls">
@@ -130,7 +130,7 @@
       <div class="panel">
         <div class="header">
           <div class="circle red"></div>
-          sample output — flirting virtual orchestra
+          sample output:: flirting virtual orchestra
           <div class="space"></div>
           <a href="https://youtu.be/K2F0mBzxEcU" class="chart-get">[ listen ]</a>
           <a href="./fs.html" class="chart-get">[ see full size ]</a>
@@ -140,22 +140,22 @@
             <a href="./fs.html" class="thumb">
               <img src="../assets/sample/artifacts-thumb.webp" width="600" height="523" loading="lazy"
                 alt="Page one: spectrum over time with the per-frame lowpass cutoff traced over it, plus the artifact distribution and localised evidence.">
-              <span class="thumb-label">1 — CODEC ARTIFACTS</span>
+              <span class="thumb-label">1:: CODEC ARTIFACTS</span>
             </a>
             <a href="./fs.html" class="thumb">
               <img src="../assets/sample/synthesis-thumb.webp" width="600" height="461" loading="lazy"
                 alt="Page two: stereo coherence and width over frequency, noise floor against level, modulation spectrum and top-octave activity.">
-              <span class="thumb-label">2 — SYNTHESIS VS CAPTURE</span>
+              <span class="thumb-label">2:: SYNTHESIS VS CAPTURE</span>
             </a>
             <a href="./fs.html" class="thumb">
               <img src="../assets/sample/timing-thumb.webp" width="600" height="495" loading="lazy"
                 alt="Page three: tempo over time, onsets against a fitted grid, spectral seams and attack rise times.">
-              <span class="thumb-label">3 — TIMING AND TRANSIENTS</span>
+              <span class="thumb-label">3:: TIMING AND TRANSIENTS</span>
             </a>
             <a href="./fs.html" class="thumb">
               <img src="../assets/sample/loudness-thumb.webp" width="600" height="510" loading="lazy"
                 alt="Page four: momentary and short-term LUFS, the loudness histogram, crest factor, third-octave spectrum and a goniometer.">
-              <span class="thumb-label">4 — LEVEL AND DYNAMICS</span>
+              <span class="thumb-label">4:: LEVEL AND DYNAMICS</span>
             </a>
           </div>
         </div>
@@ -165,10 +165,10 @@
 
   <script>
     const TITLES = [
-      "PAGE 1 — CODEC ARTIFACTS",
-      "PAGE 2 — SYNTHESIS VS CAPTURE",
-      "PAGE 3 — TIMING AND TRANSIENTS",
-      "PAGE 4 — LEVEL, DYNAMICS AND BALANCE",
+      "PAGE 1:: CODEC ARTIFACTS",
+      "PAGE 2:: SYNTHESIS VS CAPTURE",
+      "PAGE 3:: TIMING AND TRANSIENTS",
+      "PAGE 4:: LEVEL, DYNAMICS AND BALANCE",
     ];
     const NAMES = ["artifacts", "synthesis", "timing", "loudness"];
 
@@ -178,7 +178,7 @@
 
     // gtag is defined as a dataLayer stub in <head>, so events fired before the
     // library finishes loading are queued rather than lost. No filenames are
-    // ever sent — extension and size only.
+    // ever sent, extension and size only.
     function track(name, params) {
       if (typeof gtag === "function") gtag("event", name, params || {});
     }
@@ -217,7 +217,7 @@
         const { instance } = await WebAssembly.instantiate(bytes, {});
         wasm = instance.exports;
         enablePicker(true);
-        status("ready — choose an audio file", null);
+        status("ready:: choose an audio file", null);
         track("fradan_ready", { load_ms: Math.round(performance.now() - t0) });
       } catch (e) {
         status("could not load fradan.wasm: " + e.message, "failed");
@@ -227,7 +227,7 @@
 
     async function analyse(file) {
       enablePicker(false);
-      status("decoding and analysing — this tab will freeze for a few seconds…", "working");
+      status("decoding and analysing:: this tab will freeze for a few seconds…", "working");
       // Fired before the blocking call, so a run still counts if the visitor
       // gives up on the freeze and leaves.
       track("fradan_run", {
