@@ -398,6 +398,10 @@ span.pick.on {
   color: #d03b3b;
 }
 
+#pages:not(:empty) {
+  margin-top: 30px;
+}
+
 .chart {
   margin-bottom: 30px;
   background-color: black;

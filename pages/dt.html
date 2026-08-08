@@ -109,7 +109,7 @@
     </div>
   </div>
 
-  <div class="menu center" style="margin-top:30px">
+  <div class="menu center" style="margin-top:0">
     <div class="wide">
       <div id="pages"></div>
 
@@ -120,6 +120,23 @@
         </div>
         <div class="body">
           <div class="output metrics" id="metrics"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu center" style="margin-top:30px">
+    <div class="wide">
+      <div class="panel">
+        <div class="header">
+          <div class="circle red"></div>
+          clap plugin:: linux x86_64
+          <div class="space"></div>
+		  <a href="../assets/fradan.clap" download id="clap-dl" class="chart-get">download here -> [ fradan.clap ]</a>
+        </div>
+        <div class="body">
+          <div class="output">
+needs:: linux x86_64 · glibc 2.29 or newer · libX11, libxcb (XWayland is fine). Only tested in Reaper</div>
         </div>
       </div>
     </div>
@@ -320,6 +337,10 @@
 
     $("file").addEventListener("change", (e) => {
       if (e.target.files[0]) analyse(e.target.files[0]);
+    });
+
+    $("clap-dl").addEventListener("click", () => {
+      track("fradan_clap_download", { file: "fradan.clap" });
     });
     boot();
   </script>
