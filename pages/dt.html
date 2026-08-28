@@ -17,9 +17,9 @@
 
   <meta charset="utf-8" />
   <meta name="description"
-    content="in-browser audio analysis in Rust and wasm. Four pages of charts on codec artifacts, synthesis vs capture, timing and loudness. Nothing is uploaded.">
+    content="in-browser audio analysis in Rust and wasm. Five pages of charts on codec artifacts, synthesis vs capture, timing, loudness and room acoustics. Nothing is uploaded.">
   <meta name="keywords"
-    content="fradan, Rust, wasm, audio analysis, codec artifacts, mp3 detection, spectrogram, LUFS, loudness, transients">
+    content="fradan, Rust, wasm, audio analysis, codec artifacts, mp3 detection, spectrogram, LUFS, loudness, transients, room acoustics, reverberation time, STI">
   <meta name="author" content="Stefanos Kouroupis">
 
   <title>fradan | VOID MACHINES</title>
@@ -69,11 +69,11 @@
     <div class="space"></div>
     <div class="space"></div>
     <div class="bio-block">
-      <p><span class="emphasis">Fradan</span> is perceptual-codec forensic analysis: four pages of charts showing
+      <p><span class="emphasis">Fradan</span> is perceptual-codec forensic analysis: five pages of charts showing
         <em>where</em> the artifacts sit, across time and across frequency. No scores for anything.</p>
       <p>In theory you can detect lossy samples or even AI audio artifacts.</p>
-      <p>The whole analysis compiles to wasm and draws the same four pages onto canvases here. No bindgen, no npm, no
-        bundler. The interface is four pixel buffers and a string, so a raw C ABI covers it. Decoding stays in Rust
+      <p>The whole analysis compiles to wasm and draws the same five pages onto canvases here. No bindgen, no npm, no
+        bundler. The interface is five pixel buffers and a string, so a raw C ABI covers it. Decoding stays in Rust
         rather than going through WebAudio, because that resamples to the AudioContext rate and would destroy the
         lowpass cutoff that page one exists to find.</p>
       <p>Nothing is uploaded. All is local, and in theory can be used offline. The file is decoded and analysed
@@ -148,9 +148,9 @@ needs:: linux x86_64 · glibc 2.29 or newer · libX11, libxcb (XWayland is fine)
       <div class="panel">
         <div class="header">
           <div class="circle red"></div>
-          sample output:: flirting virtual orchestra
+          sample output:: friday night late performance - 11
           <div class="space"></div>
-          <a href="https://youtu.be/K2F0mBzxEcU" class="chart-get">[ listen ]</a>
+          <a href="https://youtu.be/Ra2ahZMulL0" class="chart-get">[ listen ]</a>
           <a href="./fs.html" class="chart-get">[ see full size ]</a>
         </div>
         <div class="body">
@@ -175,6 +175,11 @@ needs:: linux x86_64 · glibc 2.29 or newer · libX11, libxcb (XWayland is fine)
                 alt="Page four: momentary and short-term LUFS, the loudness histogram, crest factor, third-octave spectrum and a goniometer.">
               <span class="thumb-label">4:: LEVEL AND DYNAMICS</span>
             </a>
+            <a href="./fs.html" class="thumb">
+              <img src="../assets/sample/room-thumb.webp" width="600" height="523" loading="lazy"
+                alt="Page five: reverberation and early decay per octave band, the backward-integrated decay curve, modulation depth against rate, the free decays that were fitted, and the background level per band.">
+              <span class="thumb-label">5:: ROOM ACOUSTICS</span>
+            </a>
           </div>
         </div>
       </div>
@@ -187,8 +192,9 @@ needs:: linux x86_64 · glibc 2.29 or newer · libX11, libxcb (XWayland is fine)
       "PAGE 2:: SYNTHESIS VS CAPTURE",
       "PAGE 3:: TIMING AND TRANSIENTS",
       "PAGE 4:: LEVEL, DYNAMICS AND BALANCE",
+      "PAGE 5:: ROOM ACOUSTICS AND BACKGROUND",
     ];
-    const NAMES = ["artifacts", "synthesis", "timing", "loudness"];
+    const NAMES = ["artifacts", "synthesis", "timing", "loudness", "room"];
 
     let wasm = null;
     let limit = 180;

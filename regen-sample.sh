@@ -6,16 +6,17 @@
 #   ./regen-sample.sh                                  # finds *-artifacts.png here
 #   ./regen-sample.sh path/to/track-artifacts.png      # or point at one explicitly
 #
-# fradan writes four PNGs from one run: "<base>-artifacts.png" plus
-# "-synthesis", "-timing" and "-loudness" alongside it. Passing the artifacts
-# page is enough to find all four.
+# fradan writes five PNGs from one run: "<base>-artifacts.png" plus
+# "-synthesis", "-timing", "-loudness" and "-room" alongside it. Passing the
+# artifacts page is enough to find all five.
 #
 # Full renders are LOSSLESS on purpose. The charts carry hairline traces and a
 # 5x8 bitmap font, and a codec-forensics tool should not publish lossy
 # evidence. Thumbnails are lossy. At 600px the font is unreadable anyway, so
 # they are decorative and the bytes matter more than the detail.
 #
-# Needs cwebp:  brew install webp
+# Needs cwebp (brew install webp / pacman -S libwebp), or ImageMagick 7 as a
+# fallback: the encoder is libwebp either way, only the front end differs.
 #
 set -euo pipefail
 
@@ -25,10 +26,22 @@ out="$repo/assets/sample"
 THUMB_W=600      # displayed ~4-across on pages/dt.html
 THUMB_Q=85
 
-command -v cwebp >/dev/null || {
-  echo "error: cwebp not found. install it with:  brew install webp" >&2
+if command -v cwebp >/dev/null; then
+  encode_lossless() { cwebp -quiet -lossless "$1" -o "$2"; }
+  encode_thumb()    { cwebp -quiet -q $THUMB_Q -resize $THUMB_W 0 "$1" -o "$2"; }
+elif command -v magick >/dev/null; then
+  encode_lossless() { magick "$1" -define webp:lossless=true "$2"; }
+  encode_thumb()    { magick "$1" -resize ${THUMB_W}x -quality $THUMB_Q "$2"; }
+else
+  echo "error: need cwebp or magick. install one with:" >&2
+  echo "  brew install webp   |   pacman -S libwebp   |   pacman -S imagemagick" >&2
   exit 1
-}
+fi
+
+# sips is macOS-only and stat's size flag is not portable; identify ships with
+# ImageMagick and is the one dependency this script already tolerates.
+dims_of() { identify -format '%w %h' "$1"; }
+bytes_of() { stat -c%s "$1" 2>/dev/null || stat -f%z "$1"; }
 
 # Resolve the input: explicit argument, or the single *-artifacts.png here.
 if [ $# -ge 1 ]; then
@@ -53,21 +66,21 @@ echo "source: $base*.png"
 echo
 
 dims=""
-for page in artifacts synthesis timing loudness; do
+for page in artifacts synthesis timing loudness room; do
   if [ "$page" = artifacts ]; then src="$base.png"; else src="$base-$page.png"; fi
   [ -f "$src" ] || { echo "error: expected sibling not found: $src" >&2; exit 1; }
 
-  cwebp -quiet -lossless "$src"                       -o "$out/$page.webp"
-  cwebp -quiet -q $THUMB_Q -resize $THUMB_W 0 "$src"  -o "$out/$page-thumb.webp"
+  encode_lossless "$src" "$out/$page.webp"
+  encode_thumb    "$src" "$out/$page-thumb.webp"
 
-  read -r w h <<<"$(sips -g pixelWidth -g pixelHeight "$src" | awk '/pixelWidth|pixelHeight/{printf "%s ", $2}')"
-  read -r tw th <<<"$(sips -g pixelWidth -g pixelHeight "$out/$page-thumb.webp" | awk '/pixelWidth|pixelHeight/{printf "%s ", $2}')"
+  read -r w h   <<<"$(dims_of "$src")"
+  read -r tw th <<<"$(dims_of "$out/$page-thumb.webp")"
 
   printf '  %-10s %6.2f MB png  ->  %6.2f MB full (%sx%s)  +  %4.0f KB thumb (%sx%s)\n' \
     "$page" \
-    "$(stat -f%z "$src"                 | awk '{print $1/1048576}')" \
-    "$(stat -f%z "$out/$page.webp"      | awk '{print $1/1048576}')" "$w" "$h" \
-    "$(stat -f%z "$out/$page-thumb.webp"| awk '{print $1/1024}')"    "$tw" "$th"
+    "$(bytes_of "$src"                 | awk '{print $1/1048576}')" \
+    "$(bytes_of "$out/$page.webp"      | awk '{print $1/1048576}')" "$w" "$h" \
+    "$(bytes_of "$out/$page-thumb.webp"| awk '{print $1/1024}')"    "$tw" "$th"
 
   dims+="  $page: full width=\"$w\" height=\"$h\"   thumb width=\"$tw\" height=\"$th\""$'\n'
 done

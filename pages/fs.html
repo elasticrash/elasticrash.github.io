@@ -17,9 +17,9 @@
 
   <meta charset="utf-8" />
   <meta name="description"
-    content="fradan sample output:: four pages of perceptual-codec forensic charts rendered from a void machines track: codec artifacts, synthesis vs capture, timing and transients, level and dynamics.">
+    content="fradan sample output:: five pages of perceptual-codec forensic charts rendered from a void analogue live take: codec artifacts, synthesis vs capture, timing and transients, level and dynamics, room acoustics.">
   <meta name="keywords"
-    content="fradan, sample output, spectrogram, codec artifacts, stereo coherence, onset grid, attack rise time, LUFS, loudness range, goniometer">
+    content="fradan, sample output, spectrogram, codec artifacts, stereo coherence, onset grid, attack rise time, LUFS, loudness range, goniometer, reverberation time, clarity C50, STI">
   <meta name="author" content="Stefanos Kouroupis">
 
   <title>fradan sample output | VOID MACHINES</title>
@@ -52,7 +52,7 @@
     <div class="space"></div>
     <div class="space"></div>
     <div class="desc-block">
-      <div>four pages · rendered from flirting virtual orchestra</div>
+      <div>five pages · rendered from friday night late performance - 11</div>
     </div>
     <div class="space"></div>
   </div>
@@ -69,11 +69,18 @@
     <div class="space"></div>
     <div class="space"></div>
     <div class="bio-block">
-      <p>These are the four pages exactly as <a href="./dt.html" class="cp-entry-content">fradan</a> renders them. The track is
-        <a href="https://youtu.be/K2F0mBzxEcU" class="cp-entry-content">flirting virtual orchestra</a>, one of
-        <a href="https://thevoidmachines.bandcamp.com/" class="cp-entry-content">the void machines</a> tracks, decoded
-        from its lossless master.</p>
-      <p>Because the source is a lossless, page one comes back close to clean. The method looks for a codec's fingerprint, and there is no codec in the chain. This is a track that is using physical modelling, which is obvious if you pay close attention to pages 2 and 3, page 4 purpose is to assert the mastering of a track</p>
+      <p>These are the five pages exactly as <a href="./dt.html" class="cp-entry-content">fradan</a> renders them. The take is
+        <a href="https://youtu.be/Ra2ahZMulL0" class="cp-entry-content">friday night late performance - 11</a>, one of the
+        <a href="https://www.youtube.com/@voidanalogue" class="cp-entry-content">void analogue</a> live sets, two minutes
+        of an AAC stream at 48 kHz.</p>
+      <p>The source is lossy, from an m4a file. The method looks for a brickwall and a stopband, and AAC at this rate leaves the band open all the way
+        to the top, so there is nothing of that shape to find. Page 2 reads a synthesised
+        chain rather than a captured one. The noise floor tracks level at 1.01 dB/dB and there is no modulation peak
+        above 20 Hz.
+        Page 3 is a clock, 127.9 BPM with 0.2 BPM of wander over 1188 onsets. Page 4 is the mastering, -13.3 LUFS
+        gated over 5.1 LU of range, with one clipped run at +0.1 dBTP. Page 5 is the new one, and it is where the
+        existence of the codec finally becomes obvious. It reports 0.23 s of reverberation and +12.8 dB
+        clarity at only 76 percent confidence, because the decays it fitted had already been through an encoder.</p>
     </div>
     <div class="space"></div>
   </div>
@@ -122,6 +129,17 @@
         <div class="chart-body">
           <img src="../assets/sample/loudness.webp" width="1600" height="1394" loading="lazy"
             alt="Momentary and short-term LUFS against the gated integrated value, the short-term loudness histogram with its p10 to p95 range, peak to short-term crest, third-octave long-term average spectrum, whitened resonances, and a goniometer with inter-channel correlation.">
+        </div>
+      </div>
+
+      <div class="chart">
+        <div class="header">
+          <div class="circle red"></div>
+          PAGE 5:: ROOM ACOUSTICS AND BACKGROUND
+        </div>
+        <div class="chart-body">
+          <img src="../assets/sample/room.webp" width="1600" height="1394" loading="lazy"
+            alt="Reverberation and early decay time per octave band with the spread across fitted decays, the backward-integrated decay curve, modulation depth against rate behind an STI figure, the band-summed envelope with the free decays that were fitted, background level per octave band, and inter-channel correlation falling with frequency.">
         </div>
       </div>
 
