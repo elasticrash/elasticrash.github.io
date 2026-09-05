@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # regen-sample.sh:: turn fradan's rendered PNGs into the WebP files that
-# pages/fs.html and pages/dt.html serve.
+# pages/fradan-samples.html and pages/fradan.html serve.
 #
 #   ./regen-sample.sh                                  # finds *-artifacts.png here
 #   ./regen-sample.sh path/to/track-artifacts.png      # or point at one explicitly
@@ -23,7 +23,7 @@ set -euo pipefail
 repo="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 out="$repo/assets/sample"
 
-THUMB_W=600      # displayed ~4-across on pages/dt.html
+THUMB_W=600      # displayed ~4-across on pages/fradan.html
 THUMB_Q=85
 
 if command -v cwebp >/dev/null; then
@@ -89,7 +89,7 @@ echo
 echo "total in assets/sample: $(du -sh "$out" | cut -f1)"
 echo
 echo "The pages pin width/height on every <img> so the layout does not shift"
-echo "while images load. If these differ from what is in pages/fs.html and"
-echo "pages/dt.html, update them there:"
+echo "while images load. If these differ from what is in pages/fradan-samples.html and"
+echo "pages/fradan.html, update them there:"
 echo
 printf '%s' "$dims"

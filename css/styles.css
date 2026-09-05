@@ -487,3 +487,142 @@ a.chart-get:hover {
 .hidden {
   display: none;
 }
+
+/* ---- log:: entries generated from posts/*.md by build-log.py ---- */
+
+div.log-entry-date {
+  flex: 0 0 140px;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+div.log-empty {
+  font-size: 0.8em;
+  font-weight: 100;
+  opacity: 0.5;
+}
+
+div.post-block {
+  font-size: 0.81em;
+  font-weight: 100;
+  opacity: 0.85;
+  max-width: 680px;
+  min-width: 0;
+  line-height: 2;
+}
+
+h1.post-title {
+  font-size: 1.9em;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+div.post-date {
+  font-size: 0.85em;
+  opacity: 0.5;
+  margin-top: 4px;
+}
+
+div.post-tags {
+  font-size: 0.8em;
+  opacity: 0.4;
+  margin: 8px 0 28px;
+  letter-spacing: 0.06em;
+}
+
+div.post-block p {
+  margin: 0 0 1.6em;
+}
+
+.post-heading {
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 2.2em 0 0.8em;
+}
+
+h2.post-heading {
+  font-size: 1.25em;
+}
+
+h3.post-heading {
+  font-size: 1.05em;
+  opacity: 0.85;
+}
+
+h4.post-heading,
+h5.post-heading,
+h6.post-heading {
+  font-size: 0.95em;
+  opacity: 0.7;
+}
+
+.post-list {
+  margin: 0 0 1.6em;
+  padding-left: 1.6em;
+}
+
+.post-list li {
+  margin-bottom: 0.4em;
+}
+
+.post-list .post-list {
+  margin: 0.4em 0 0;
+}
+
+.post-block code {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.92em;
+  color: goldenrod;
+}
+
+pre.post-code {
+  font-size: 0.92em;
+  line-height: 1.7;
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 12px 14px;
+  margin: 0 0 1.6em;
+  overflow-x: auto;
+}
+
+pre.post-code code {
+  color: antiquewhite;
+  opacity: 0.9;
+}
+
+blockquote.post-quote {
+  margin: 0 0 1.6em;
+  padding-left: 16px;
+  border-left: 1px solid goldenrod;
+  opacity: 0.7;
+}
+
+blockquote.post-quote p:last-child {
+  margin-bottom: 0;
+}
+
+hr.post-rule {
+  border: none;
+  border-top: 1px solid gray;
+  opacity: 0.4;
+  margin: 2.4em 0;
+}
+
+.post-block img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-bottom: 1.6em;
+}
+
+div.post-nav {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+div.post-nav .menu-item {
+  margin-bottom: 5px;
+}
