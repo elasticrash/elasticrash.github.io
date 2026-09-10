@@ -503,12 +503,12 @@ div.log-empty {
 }
 
 div.post-block {
-  font-size: 0.81em;
-  font-weight: 100;
-  opacity: 0.85;
-  max-width: 680px;
+  font-size: 1.05em;
+  font-weight: 400;
+  opacity: 1;
+  max-width: 660px;
   min-width: 0;
-  line-height: 2;
+  line-height: 1.75;
 }
 
 h1.post-title {
