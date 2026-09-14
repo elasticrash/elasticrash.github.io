@@ -1,6 +1,6 @@
 ---
 title: what is recursive self-improvement? 
-date: 2026-09-09
+date: 09/09/2026
 description: yet another ai hype calls recursive self-improvement
 tags: AI
 ---

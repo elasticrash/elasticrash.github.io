@@ -1,6 +1,6 @@
 ---
 title: Hello world
-date: 2026-09-05
+date: 05/09/2026
 description: hello world in rust
 tags: rust
 ---

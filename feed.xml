@@ -7,17 +7,24 @@
   <description>Notes on systems, rust, audio and modular synthesis by Stefanos Kouroupis.</description>
   <language>en</language>
   <item>
+    <title>are we all going to die?</title>
+    <link>https://voidmachines.com/pages/log/end-of-times.html</link>
+    <guid isPermaLink="true">https://voidmachines.com/pages/log/end-of-times.html</guid>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 +0100</pubDate>
+    <description>is the end of times as hyped as AI?</description>
+  </item>
+  <item>
     <title>what is recursive self-improvement?</title>
     <link>https://voidmachines.com/pages/log/recursive-self-improvement.html</link>
     <guid isPermaLink="true">https://voidmachines.com/pages/log/recursive-self-improvement.html</guid>
-    <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
+    <pubDate>Wed, 09 Sep 2026 00:00:00 +0100</pubDate>
     <description>yet another ai hype calls recursive self-improvement</description>
   </item>
   <item>
     <title>Hello world</title>
     <link>https://voidmachines.com/pages/log/hello-world.html</link>
     <guid isPermaLink="true">https://voidmachines.com/pages/log/hello-world.html</guid>
-    <pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+    <pubDate>Sat, 05 Sep 2026 00:00:00 +0100</pubDate>
     <description>hello world in rust</description>
   </item>
 </channel>
