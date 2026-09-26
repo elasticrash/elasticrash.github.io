@@ -39,4 +39,27 @@
     <loc>https://voidmachines.com/pages/datafowk.html</loc>
     <lastmod>2026-08-05</lastmod>
   </url>
+  <!-- log:start -->
+
+  <url>
+    <loc>https://voidmachines.com/pages/log.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+
+  <url>
+    <loc>https://voidmachines.com/pages/log/end-of-times.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+
+  <url>
+    <loc>https://voidmachines.com/pages/log/recursive-self-improvement.html</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+
+  <url>
+    <loc>https://voidmachines.com/pages/log/hello-world.html</loc>
+    <lastmod>2026-09-05</lastmod>
+  </url>
+  <!-- log:end -->
+
 </urlset>
