@@ -1,5 +1,5 @@
 ---
-title: Brilliant and Contradictory Self Regulations
+title: brilliant and contradictory self regulations
 date: 30/09/2026
 description: Bill Gates interview with Ezra Klein 
 tags: AI
