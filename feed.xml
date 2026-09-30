@@ -4,8 +4,15 @@
   <title>void*machines log</title>
   <link>https://voidmachines.com/pages/log.html</link>
   <atom:link href="https://voidmachines.com/feed.xml" rel="self" type="application/rss+xml" />
-  <description>Opinions on AI, technology and the occasional philosophical tangent.</description>
+  <description>Opinions on AI, technology and the occasional philosophical tangent by voidmachines.</description>
   <language>en</language>
+  <item>
+    <title>Brilliant and Contradictory Self Regulations</title>
+    <link>https://voidmachines.com/pages/log/bill-gates-interview.html</link>
+    <guid isPermaLink="true">https://voidmachines.com/pages/log/bill-gates-interview.html</guid>
+    <pubDate>Wed, 30 Sep 2026 00:00:00 +0100</pubDate>
+    <description>Bill Gates interview with Ezra Klein</description>
+  </item>
   <item>
     <title>are we all going to die?</title>
     <link>https://voidmachines.com/pages/log/end-of-times.html</link>
